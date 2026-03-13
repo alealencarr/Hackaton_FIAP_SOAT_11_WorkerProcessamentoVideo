@@ -65,7 +65,7 @@ jobs:
             name: fiapx-worker
             namespace: fiapx
           spec:
-            replicas: 2
+            replicas: 1
             selector:
               matchLabels:
                 app: fiapx-worker
@@ -91,11 +91,11 @@ jobs:
                     value: "guest"
                   resources:
                     requests:
-                      memory: "512Mi"
-                      cpu: "500m"
+                      memory: "128Mi"
+                      cpu: "100m"
                     limits:
-                      memory: "1Gi"
-                      cpu: "1000m"
+                      memory: "256Mi"
+                      cpu: "250m"
           EOF
           
           kubectl rollout status deployment/fiapx-worker -n fiapx --timeout=300s
